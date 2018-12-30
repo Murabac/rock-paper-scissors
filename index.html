@@ -20,27 +20,68 @@
     let computerSelection = options[Math.floor(Math.random()*options.length)];
     return computerSelection;
     }
-      
-    function playRound(playerSelection, computerSelection){
 
-      switch (computerSelection) {
-        case "Rock":
-          return "Tie";
-          break;
-        case "Paper":
-          return "Computer Winn!";
-          break;
-        case "Scissors":
-        return "You Winn!";
-        break;
 
+    function game(){
+      let a = null;
+      let b = null;
+      for(i = 0; i < 5; i++){
+      function playRound(playerSelection, computerSelection){
+          playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
+        switch (computerSelection) {
+          case "Rock":
+            return "Tie";
+            break;
+          case "Paper":
+              b = ++b;
+            return "Computer Winn!";
+            break;
+          case "Scissors":
+            a = ++a;
+          return "You Winn!";
+          break;
+
+        }
       }
+      const playerSelection = "ROCK";
+      const computerSelection = computerPlay ();
+      document.write(computerSelection);
+      document.write("<br>");
+      document.write(playRound(playerSelection, computerSelection));
+      document.write("<br>");
+      document.write("<br>");
     }
-    const playerSelection = "Rock";
-    const computerSelection = computerPlay ();
-    document.write(computerSelection);
-    document.write("<br>");
-    document.write(playRound(playerSelection, computerSelection));
+    if (a > b){
+      document.write("Game: Human Won");
+    }
+    else if (b > a){
+      document.write("Game: Computer Won");
+    }
+    else if (a == b){
+      document.write("Game: Tie");
+    }
+    }
+
+
+  game();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </script>
 </body>
