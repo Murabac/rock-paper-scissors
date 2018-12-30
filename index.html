@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Rock Paper Scissors</title>
+</head>
+<body>
+
+
+<script type="text/javascript">
+
+  function computerPlay (){
+      let options = [
+      "Rock",
+      "Paper",
+      "Scissors"
+    ];
+    let computerSelection = options[Math.floor(Math.random()*options.length)];
+    return computerSelection;
+    }
+      
+    function playRound(playerSelection, computerSelection){
+
+      switch (computerSelection) {
+        case "Rock":
+          return "Tie";
+          break;
+        case "Paper":
+          return "Computer Winn!";
+          break;
+        case "Scissors":
+        return "You Winn!";
+        break;
+
+      }
+    }
+    const playerSelection = "Rock";
+    const computerSelection = computerPlay ();
+    document.write(computerSelection);
+    document.write("<br>");
+    document.write(playRound(playerSelection, computerSelection));
+
+</script>
+</body>
+</html>
