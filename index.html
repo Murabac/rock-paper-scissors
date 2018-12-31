@@ -23,42 +23,86 @@
 
 
     function game(){
-      let a = null;
-      let b = null;
+      let humanRecord = null;
+      let computerRecord = null;
       for(i = 0; i < 5; i++){
       function playRound(playerSelection, computerSelection){
-          playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
         switch (computerSelection) {
           case "Rock":
-            return "Tie";
+            if(playerSelection == "Rock")
+            {
+              return "The Game is Tie";
+            }
+            else if(playerSelection == "Paper")
+            {
+              humanRecord = ++humanRecord;
+              return "You WIn! Paper beats Rock"
+            }
+            else if (playerSelection == "Scissors")
+            {
+              computerRecord = ++computerRecord;
+              return "You Lose! Rock beats Scissors"
+            }
             break;
           case "Paper":
-              b = ++b;
-            return "Computer Winn!";
+          if (playerSelection == "Rock"){
+            computerRecord = ++computerRecord;
+            return "You Lose! Paper beats Rock";
+          }
+          else if(playerSelection == "Paper")
+          {
+            return "The Game is Tie";
+          }
+          else if(playerSelection == "Scissors")
+          {
+            humanRecord = ++humanRecord;
+            return "You WIn! Scissors beats Paper";
+          }
             break;
           case "Scissors":
-            a = ++a;
+            if(playerSelection == "Rock")
+            {
+              humanRecord = ++humanRecord;
+              return "You WIn! Rock beats Scissors";
+            }
+            else if(playerSelection == "Paper")
+            {
+              computerRecord = ++computerRecord;
+              return "You Lose! Scissors beats Paper";
+            }
+            else if(playerSelection == "Scissors")
+            {
+              return "The Game is Tie";
+            }
+
           return "You Winn!";
           break;
 
         }
+
+
       }
-      const playerSelection = "ROCK";
+      let playerSelection = prompt("Enter Your Option");
+      playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
       const computerSelection = computerPlay ();
-      document.write(computerSelection);
-      document.write("<br>");
-      document.write(playRound(playerSelection, computerSelection));
-      document.write("<br>");
-      document.write("<br>");
+      if(playerSelection == "Rock" || playerSelection == "Paper" || playerSelection == "Scissors")
+      {
+      console.log("The Computer Selected " + computerSelection + " And " + "You Selected " + playerSelection + " So: ");
+      console.log(playRound(playerSelection, computerSelection));
     }
-    if (a > b){
-      document.write("Game: Human Won");
+    else {
+      alert("Please Enter Valid Entry");
+      --i;
     }
-    else if (b > a){
-      document.write("Game: Computer Won");
     }
-    else if (a == b){
-      document.write("Game: Tie");
+    if (humanRecord > computerRecord){
+      console.log("Game: You Won!, Score: " + humanRecord);
+    }
+    else if (computerRecord > humanRecord){
+      console.log("Game: Computer Won!, Score: " + computerRecord);
+    }
+    else if (humanRecord == computerRecord){
+      console.log("Game: Tie");
     }
     }
 
