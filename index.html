@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Rock Paper Scissors</title>
+  <title>Game - Rock Paper Scissors</title>
 </head>
 <body>
 
@@ -20,8 +20,6 @@
     let computerSelection = options[Math.floor(Math.random()*options.length)];
     return computerSelection;
     }
-
-
     function game(){
       let humanRecord = null;
       let computerRecord = null;
@@ -74,13 +72,9 @@
             {
               return "The Game is Tie";
             }
-
           return "You Winn!";
           break;
-
         }
-
-
       }
       let playerSelection = prompt("Enter Your Option");
       playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase();
@@ -105,28 +99,7 @@
       console.log("Game: Tie");
     }
     }
-
-
   game();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </script>
 </body>
 </html>
